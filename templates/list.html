@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Story list</title>
+</head>
+<body>
+    <center>
+        <table style="width:100%" border="1">
+                <tr>
+                <th>ID</th>
+                <th>Story title</th>
+                <th>User story</th>
+                <th>Acceptance criteria</th>
+                <th>Business Value</th>
+                <th>Estimation</th>
+                <th>Status</th>
+                <th>Action</th>
+                </tr>
+                {% for data in bable %}
+                <tr>
+                <td>{{data[0]}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[2]}}</td>
+                <td>{{data[3]}}</td>
+                <td>{{data[4]}}</td>
+                <td>{{data[5]}}</td>
+                <td>{{data[6]}}</td>
+            <form action="/update" method="GET">
+                <th colspan="2">
+                    <button name="update" value="{{data[0]}}" type="submit">
+                            Update</button>
+            </form>
+            <form action ="/del" method="GET">
+                    <button name="del" value="{{data[0]}}" type="submit">
+                            Delete</button>
+                </th>
+            </form>
+                {% endfor %}
+        </table>
+        <br>
+        <br>
+        <button onclick="location.href='/story.html'" type="button">
+            Add a new User Story</button>
+
+    </center>
+</body>
+</html>
